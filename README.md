@@ -52,7 +52,7 @@ This program simulates the coffee ordering process, including the ability to add
 - Expand the available drink and extras menu.
 
 ### In Progress
-- Enhancing the receipt display for better readability.
+- Make the checkout system more advanced.
 
 ### Done
 - Basic coffee ordering functionality.

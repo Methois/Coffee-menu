@@ -61,8 +61,43 @@ while not done:
     else:
         print("Invalid choice, please try again")
 
-print("\n-----| Receipt |-----")
+print("\n-----| Your Order Summary |-----")
 for item in shoppingList:
     print(item)
-total = cost + extraCost
-print(f"\nTotal: {total:.2f} EUR")
+print(f"\nTotal: {cost + extraCost:.2f} EUR")
+
+while True:
+    good = input("Is your order correct (y/n)? ").lower()
+
+    if good == "y":
+        print("\n-----| Receipt |-----")
+        for item in shoppingList:
+            print(item)
+        total = cost + extraCost
+        print(f"\nTotal: {total:.2f} EUR")
+        break 
+    elif good == "n":
+        remove_item = input("Would you like to remove an item (y/n)? ").lower()
+
+        if remove_item == "y":
+            print("Which item would you like to remove? (Enter the number corresponding to the item) ")
+            for idx, item in enumerate(shoppingList, 1):
+                print(f"{idx}. {item}")
+        
+            try:
+                item_to_remove = int(input("Enter the number of the item you would like to remove: "))
+                if 1 <= item_to_remove <= len(shoppingList):
+                    shoppingList.pop(item_to_remove - 1)
+                    print("\n-----| Updated Order Summary |-----")
+                    for item in shoppingList:
+                        print(item)
+                    print(f"\nTotal: {cost + extraCost:.2f} EUR")
+                else:
+                    print("Invalid choice, please try again")
+            except ValueError:
+                print("Invalid choice, please try again")
+        elif remove_item == "n":
+            print("No items were removed.")
+            break
+    else:
+        print("Invalid choice, please try again")
