@@ -1,3 +1,5 @@
+import datetime
+
 cost = 0
 extraCost = 0
 done = False
@@ -11,13 +13,18 @@ print("-------| White |------------|")
 print("3. Cappuccino............3.00 EUR")
 print("4. Latte.................3.20 EUR")
 print("5. Flat White............3.50 EUR\n")
+print("-------| Specialties |------------|")
+print("6. Mocha.................3.75 EUR")
+print("7. Caramel Macchiato.....4.00 EUR\n")
 
 coffee_prices = {
     1: ("Espresso", 2.50),
     2: ("Americano", 3.25),
     3: ("Cappuccino", 3.00),
     4: ("Latte", 3.20),
-    5: ("Flat White", 3.50)
+    5: ("Flat White", 3.50),
+    6: ("Mocha", 3.75),
+    7: ("Caramel Macchiato", 4.00)
 }
 
 extra_prices = {
@@ -26,7 +33,7 @@ extra_prices = {
 }
 
 while not done:
-    choice = int(input("Make your choice (1-5): "))
+    choice = int(input("Make your choice (1-7): "))
     if choice in coffee_prices:
         drink, price = coffee_prices[choice]
         cost += price
@@ -70,11 +77,20 @@ while True:
     good = input("Is your order correct (y/n)? ").lower()
 
     if good == "y":
-        print("\n-----| Receipt |-----")
+        print("\n-----| Receipt |-----\n")
+        print("     Receipt of sale       ")
+        print("       Coffee Shop      \n")  
+        print("-------------------------")
+        print("Date: ", datetime.datetime.now())
+        print("-------------------------\n")
+
         for item in shoppingList:
             print(item)
         total = cost + extraCost
+        print("\n-------------------------")
         print(f"\nTotal: {total:.2f} EUR")
+        print("-------------------------")
+        print("Thank you for your purchase!")
         break 
     elif good == "n":
         remove_item = input("Would you like to remove an item (y/n)? ").lower()
@@ -98,6 +114,5 @@ while True:
                 print("Invalid choice, please try again")
         elif remove_item == "n":
             print("No items were removed.")
-            break
     else:
         print("Invalid choice, please try again")

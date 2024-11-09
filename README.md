@@ -49,15 +49,16 @@ This program simulates the coffee ordering process, including the ability to add
 
 ### To-Do
 - Implement user login functionality for the cash register system.
-- Expand the available drink and extras menu.
 
 ### In Progress
-- Make the checkout system more advanced.
+- Expand the available drink and extras menu.
 
 ### Done
+- Expand the receipt section
 - Basic coffee ordering functionality.
 - Adding sugar and milk options (one-time addition per beverage).
 - Generating and printing a receipt with all orders.
+- Make the checkout system more advanced.
 
 ## Contributions
 
